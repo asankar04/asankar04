@@ -1,5 +1,6 @@
 - 👋 Hi, I’m @asankar04
-- 👀 I’m majoring in Computer Science
+- 👀 I'm a sophomore computer science major with interests in data science, machine learning, and software development.
+- 
 
 <!---
 asankar04/asankar04 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
