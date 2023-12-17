@@ -1,4 +1,4 @@
-- 👋 Hi, I’m @asankar04
+- 👋 Hi, I’m Anit Sankar!
 - 👀 I'm a sophomore computer science major with interests in data science, machine learning, and software development.
 - 
 
