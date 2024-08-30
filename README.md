@@ -1,5 +1,5 @@
 - 👋 Hi, I’m Anit Sankar!
-- 👀 I'm a sophomore computer science major with interests in data science, machine learning, and software development.
+- 👀 I'm a junior computer science major with interests in web development, machine learning, and software development.
 - 
 
 <!---
