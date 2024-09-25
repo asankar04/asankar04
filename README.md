@@ -1,4 +1,4 @@
-👀 Hello! I’m Anit Sankar!
+<p>👀 Hello! I’m Anit Sankar!</p>p>
 - 🏫 A junior computer science major at the University of Alabama at Birmingham
 - 🖥️ Interested in full stack development, machine learning, and data science
 - 🛠️ You can find my projects <a href="https://anitsankar.com/projects">here</a>
