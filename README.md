@@ -1,4 +1,4 @@
-<p>👀 Hello! I’m Anit Sankar!</p>
+<p style="font-size: 20px;">👀 Hello! I’m Anit Sankar!</p>
 <div>
   <li> 🏫 A junior computer science major at the University of Alabama at Birmingham</li>
   <li> 🖥️ Interested in full stack development, machine learning, and data science</li>
