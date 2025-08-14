@@ -4,16 +4,12 @@ interface RunwayCardProps {
   title: string;
   company: string;
   duration: string;
-  description: string;
-  runway?: string;
 }
 
 export default function RunwayCard({
   title,
   company,
   duration,
-  description,
-  runway = '09L',
 }: RunwayCardProps) {
   return (
     <motion.div
@@ -21,12 +17,7 @@ export default function RunwayCard({
       className="relative bg-gray-800 p-6 rounded-lg overflow-hidden border-2 border-yellow-400 border-dashed"
     >
       {/* Runway centerline */}
-      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1 h-full bg-yellow-400 opacity-20" />
-
-      {/* Runway markings */}
-      <div className="absolute top-2 left-4 text-yellow-400 font-bold text-xs">
-        RWY {runway}
-      </div>
+      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-full h-1 bg-yellow-400 opacity-20" />
 
       {/* Content */}
       <div className="relative z-10">
@@ -39,8 +30,6 @@ export default function RunwayCard({
             {duration}
           </span>
         </div>
-
-        <p className="text-gray-300 leading-relaxed">{description}</p>
       </div>
 
       {/* Runway edge lights */}

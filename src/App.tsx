@@ -3,32 +3,43 @@ import LandingPage from './components/Landing';
 import ExperiencePage from './components/Experience';
 import SkillsPage from './components/Skills';
 import PaperPlane from './components/PaperPlane';
+import AnimatedBackground from './components/AnimatedBackground';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen relative">
+      {/* Animated dark background with falling planes */}
+      <AnimatedBackground />
+
+      {/* Header with departure board style */}
       <Header />
+
+      {/* User-controlled paper plane cursor */}
       <PaperPlane />
-      <div
-        id="home"
-        className="min-h-screen pt-16 flex items-center justify-center"
-      >
-        <LandingPage />
-      </div>
 
-      <div
-        id="experience"
-        className="min-h-screen flex items-center justify-center"
-      >
-        <ExperiencePage />
-      </div>
+      {/* Main content sections */}
+      <main className="relative z-10">
+        <section
+          id="home"
+          className="min-h-screen pt-20 flex items-center justify-center"
+        >
+          <LandingPage />
+        </section>
 
-      <div
-        id="skills"
-        className="min-h-screen flex items-center justify-center"
-      >
-        <SkillsPage />
-      </div>
+        <section
+          id="experience"
+          className="min-h-screen flex items-center justify-center"
+        >
+          <ExperiencePage />
+        </section>
+
+        <section
+          id="skills"
+          className="min-h-screen flex items-center justify-center"
+        >
+          <SkillsPage />
+        </section>
+      </main>
     </div>
   );
 }
