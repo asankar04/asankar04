@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import LetterBoard from '../Custom/LetterBoard';
 
 export default function LandingPage() {
   // Departure board component
@@ -57,28 +56,30 @@ export default function LandingPage() {
   );
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      className="flex flex-col items-center text-center max-w-4xl mx-auto px-4 space-y-4"
-    >
-      {/* Name */}
-      <ScheduleBoardText className="text-4xl font-bold">
-        Anit Sankar
-      </ScheduleBoardText>
+    <div className="bg-black/40 w-full rounded-sm border p-10">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="flex flex-col items-center text-center max-w-4xl mx-auto px-4 space-y-4"
+      >
+        {/* Name */}
+        <ScheduleBoardText className="text-4xl font-bold">
+          Anit Sankar
+        </ScheduleBoardText>
 
-      {/* Job title & Location */}
-      <ScheduleBoardText className="text-xl">
-        Software Engineer | Birmingham, AL
-      </ScheduleBoardText>
+        {/* Job title & Location */}
+        <ScheduleBoardText className="text-xl">
+          Software Engineer | Birmingham, AL
+        </ScheduleBoardText>
 
-      {/* Bio */}
-      <ScheduleBoardText className="text-base leading-relaxed max-w-2xl mx-auto">
-        Building cool stuff and exploring new ideas.
-        <br />
-        Computer Science @ UAB. Big avgeek.
-      </ScheduleBoardText>
-    </motion.div>
+        {/* Bio */}
+        <ScheduleBoardText className="text-base leading-relaxed max-w-2xl mx-auto">
+          Building cool stuff and exploring new ideas.
+          <br />
+          Computer Science @ UAB. Big avgeek.
+        </ScheduleBoardText>
+      </motion.div>
+    </div>
   );
 }

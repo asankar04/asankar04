@@ -13,9 +13,6 @@ export default function AnimatedBackground() {
   const [planes, setPlanes] = useState<Plane[]>([]);
   const [viewportHeight, setViewportHeight] = useState(0);
 
-  // Cache viewport height instead of accessing window.innerHeight constantly
-  const updateViewportHeight = () => setViewportHeight(window.innerHeight);
-
   const generatePlanes = () => {
     const newPlanes: Plane[] = [];
     for (let i = 0; i < 14; i++) {
@@ -30,11 +27,14 @@ export default function AnimatedBackground() {
     setPlanes(newPlanes);
   };
 
+  // Cache viewport height
+  const updateViewportHeight = () => setViewportHeight(window.innerHeight);
+
   useEffect(() => {
-    updateViewportHeight(); // Set initial height
+    updateViewportHeight();
     generatePlanes();
 
-    // Update height only when window resizes
+    // Update viewport height on rezie
     window.addEventListener('resize', updateViewportHeight);
     return () => window.removeEventListener('resize', updateViewportHeight);
   }, []);
@@ -46,45 +46,44 @@ export default function AnimatedBackground() {
       </div>
 
       {/* Animated planes */}
-      {viewportHeight > 0 &&
-        planes.map((plane) => (
-          <motion.div
-            key={plane.id}
-            className="absolute text-blue-400/40"
-            style={{
-              left: `${plane.x}%`,
-            }}
-            initial={{
-              y: -50,
-              rotate: 0,
-            }}
-            animate={{
-              y: viewportHeight + 50, // Use cached height instead of window.innerHeight
-              rotate: [0, 10, -10, 0],
-              x: [0, 30, -20, 0],
-            }}
-            transition={{
-              duration: plane.duration,
-              delay: plane.delay,
-              repeat: Infinity,
-              ease: 'linear',
-            }}
+      {planes.map((plane) => (
+        <motion.div
+          key={plane.id}
+          className="absolute text-blue-400/40"
+          style={{
+            left: `${plane.x}%`,
+          }}
+          initial={{
+            y: -50,
+            rotate: 0,
+          }}
+          animate={{
+            y: viewportHeight + 50, // Use cached height instead of window.innerHeight
+            rotate: [0, 10, -10, 0],
+            x: [0, 30, -20, 0],
+          }}
+          transition={{
+            duration: plane.duration,
+            delay: plane.delay,
+            repeat: Infinity,
+            ease: 'linear',
+          }}
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 100 100"
+            className="opacity-60"
           >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 100 100"
-              className="opacity-60"
-            >
-              <polygon
-                points="50,90 20,20 50,35 80,20"
-                fill="currentColor"
-                stroke="rgba(59, 130, 246, 0.3)"
-                strokeWidth="1"
-              />
-            </svg>
-          </motion.div>
-        ))}
+            <polygon
+              points="50,90 20,20 50,35 80,20"
+              fill="currentColor"
+              stroke="rgba(59, 130, 246, 0.3)"
+              strokeWidth="1"
+            />
+          </svg>
+        </motion.div>
+      ))}
 
       {/* Subtle glow effects */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />

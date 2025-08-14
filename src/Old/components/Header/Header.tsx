@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import LetterBoard from '../Custom/LetterBoard';
+import HeadingBoard from '../Custom/HeadingBoard';
 
 export default function Header() {
   const [currentTime, setCurrentTime] = useState(new Date());
