@@ -14,7 +14,7 @@ export default function AnimatedBackground() {
 
   const generatePlanes = () => {
     const newPlanes: Plane[] = [];
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < 14; i++) {
       newPlanes.push({
         id: i,
         x: Math.random() * 100, // horizontal position

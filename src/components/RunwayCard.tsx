@@ -21,14 +21,14 @@ export default function RunwayCard({
 
       {/* Content */}
       <div className="relative z-10">
-        <div className="flex justify-between items-start mb-4">
-          <div>
+        <div className="flex flex-col justify-between items-start mb-4">
+          <div className="flex items-center gap-2">
             <h3 className="text-xl font-bold text-white">{title}</h3>
-            <p className="text-yellow-400 font-semibold">{company}</p>
+            <span className="text-gray-300 text-sm bg-gray-700 px-2 py-1 rounded">
+              {duration}
+            </span>
           </div>
-          <span className="text-gray-300 text-sm bg-gray-700 px-2 py-1 rounded">
-            {duration}
-          </span>
+          <p className="text-yellow-400 font-semibold">{company}</p>
         </div>
       </div>
 
