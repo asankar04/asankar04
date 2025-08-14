@@ -40,8 +40,8 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-gray-900 border-b-2 border-yellow-400 z-40">
-      {/* Live Status Bar */}
+    <header className="top-0 left-0 right-0 bg-gray-900/50 z-40">
+      {/* Live Status Bar
       <motion.div
         className="bg-yellow-400 text-gray-900 text-center py-1 overflow-hidden"
         animate={{ opacity: [1, 0.8, 1] }}
@@ -54,18 +54,10 @@ export default function Header() {
         >
           ✈️ ANIT SANKAR PORTFOLIO • WELCOME ABOARD
         </motion.span>
-      </motion.div>
+      </motion.div> */}
 
       <nav className="max-w-6xl mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
-          {/* Callsign Display */}
-          <div className="flex flex-col items-start">
-            <div className="text-yellow-400 text-xs font-mono mb-1">
-              CALLSIGN
-            </div>
-            <LetterBoard text="AS-04" />
-          </div>
-
           {/* Navigation with departure board style */}
           <div className="flex space-x-8">
             {navItems.map((item) => (
@@ -94,6 +86,7 @@ export default function Header() {
                 hour12: false,
                 hour: '2-digit',
                 minute: '2-digit',
+                second: '2-digit',
               })}
             />
           </div>

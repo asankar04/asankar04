@@ -1,23 +1,23 @@
-import Header from './components/Header';
-import LandingPage from './components/Landing';
-import ExperiencePage from './components/Experience';
-import SkillsPage from './components/Skills';
+import Header from './components/Header/Header';
+import LandingPage from './components/Sections/Landing';
+import ExperiencePage from './components/Sections/Experience';
+import SkillsPage from './components/Sections/Skills';
 import PaperPlane from './components/PaperPlane';
+// import SkyBackground from './components/SkyBackground';
 import AnimatedBackground from './components/AnimatedBackground';
 
 function App() {
   return (
     <div className="min-h-screen relative">
-      {/* Animated dark background with falling planes */}
+      {/* Background */}
       <AnimatedBackground />
+      {/* <SkyBackground /> */}
 
-      {/* Header with departure board style */}
+      {/* Cursor & Header */}
+      <PaperPlane />
       <Header />
 
-      {/* User-controlled paper plane cursor */}
-      <PaperPlane />
-
-      {/* Main content sections */}
+      {/* Content sections */}
       <main className="relative z-10">
         <section
           id="home"
