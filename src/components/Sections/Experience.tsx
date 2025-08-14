@@ -1,4 +1,4 @@
-import RunwayCard from '../RunwayCard';
+import RunwayCard from '../Custom/RunwayCard';
 
 export default function ExperiencePage() {
   return (

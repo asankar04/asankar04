@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import LetterBoard from '../Custom/LetterBoard';
 
 export default function LandingPage() {
   // Departure board component
@@ -40,7 +41,7 @@ export default function LandingPage() {
         className="relative z-10 block px-4 py-2 font-mono tracking-wide hover:animate-pulse"
         variants={{
           initial: {
-            color: 'white',
+            color: '#ffffff', // white
             textShadow: 'none',
           },
           hover: {

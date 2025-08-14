@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import LetterBoard from '../Custom/LetterBoard';
 
 export default function Header() {
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -17,26 +18,10 @@ export default function Header() {
     }
   };
 
-  // Clean letter board without flickering animation
-  const LetterBoard = ({ text }: { text: string }) => (
-    <div className="flex space-x-0.5">
-      {text.split('').map((char, index) => (
-        <div
-          key={index}
-          className="bg-gray-800 border border-gray-600 px-1.5 py-1 min-w-[16px] text-center"
-        >
-          <span className="text-yellow-400 font-mono text-xs font-bold">
-            {char === ' ' ? '\u00A0' : char}
-          </span>
-        </div>
-      ))}
-    </div>
-  );
-
   const navItems = [
-    { heading: 'GATE A', name: 'HOME', id: 'home' },
-    { heading: 'GATE B', name: 'EXPERIENCE', id: 'experience' },
-    { heading: 'GATE C', name: 'SKILLS', id: 'skills' },
+    { name: 'HOME', id: 'home' },
+    { name: 'EXPERIENCE', id: 'experience' },
+    { name: 'SKILLS', id: 'skills' },
   ];
 
   return (
@@ -70,9 +55,6 @@ export default function Header() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <div className="text-yellow-400 text-xs font-mono mb-1">
-                    {item.heading}
-                  </div>
                   <LetterBoard text={item.name} />
                 </motion.button>
               ))}
@@ -82,9 +64,6 @@ export default function Header() {
           {/* Right-aligned time */}
           <div className="col-start-3 justify-self-end">
             <div className="flex flex-col items-end">
-              <div className="text-yellow-400 text-xs font-mono mb-1">
-                LOCAL TIME
-              </div>
               <LetterBoard
                 text={currentTime.toLocaleTimeString('en-US', {
                   hour12: false,

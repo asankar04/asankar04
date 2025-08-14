@@ -6,8 +6,8 @@ export default function PaperPlane() {
   const y = useMotionValue(0);
 
   // Spring physics for smooth movement
-  const springX = useSpring(x, { stiffness: 900, damping: 60 });
-  const springY = useSpring(y, { stiffness: 900, damping: 60 });
+  const springX = useSpring(x, { stiffness: 1000, damping: 100 });
+  const springY = useSpring(y, { stiffness: 1000, damping: 100 });
 
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
