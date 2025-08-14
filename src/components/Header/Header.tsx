@@ -57,38 +57,42 @@ export default function Header() {
       </motion.div> */}
 
       <nav className="max-w-6xl mx-auto px-4 py-3">
-        <div className="flex items-center justify-between">
-          {/* Navigation with departure board style */}
-          <div className="flex space-x-8">
-            {navItems.map((item) => (
-              <motion.button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="group flex flex-col items-center"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <div className="text-yellow-400 text-xs font-mono mb-1">
-                  {item.heading}
-                </div>
-                <LetterBoard text={item.name} />
-              </motion.button>
-            ))}
+        {/* 3 columns: left spacer, middle (auto width), right */}
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center">
+          {/* Centered nav */}
+          <div className="col-start-2 justify-self-center">
+            <div className="flex space-x-8 text-center">
+              {navItems.map((item) => (
+                <motion.button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="group flex flex-col items-center"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <div className="text-yellow-400 text-xs font-mono mb-1">
+                    {item.heading}
+                  </div>
+                  <LetterBoard text={item.name} />
+                </motion.button>
+              ))}
+            </div>
           </div>
 
-          {/* Live Time Display */}
-          <div className="flex flex-col items-end">
-            <div className="text-yellow-400 text-xs font-mono mb-1">
-              LOCAL TIME
+          {/* Right-aligned time */}
+          <div className="col-start-3 justify-self-end">
+            <div className="flex flex-col items-end">
+              <div className="text-yellow-400 text-xs font-mono mb-1">
+                LOCAL TIME
+              </div>
+              <LetterBoard
+                text={currentTime.toLocaleTimeString('en-US', {
+                  hour12: false,
+                  hour: '2-digit',
+                  minute: '2-digit',
+                })}
+              />
             </div>
-            <LetterBoard
-              text={currentTime.toLocaleTimeString('en-US', {
-                hour12: false,
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-              })}
-            />
           </div>
         </div>
       </nav>

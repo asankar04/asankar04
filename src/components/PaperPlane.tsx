@@ -6,8 +6,8 @@ export default function PaperPlane() {
   const y = useMotionValue(0);
 
   // Spring physics for smooth movement
-  const springX = useSpring(x, { stiffness: 900, damping: 50 });
-  const springY = useSpring(y, { stiffness: 900, damping: 50 });
+  const springX = useSpring(x, { stiffness: 900, damping: 60 });
+  const springY = useSpring(y, { stiffness: 900, damping: 60 });
 
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
@@ -31,8 +31,8 @@ export default function PaperPlane() {
     >
       <div className="relative">
         <svg
-          width="60"
-          height="60"
+          width="40"
+          height="40"
           viewBox="0 0 100 100"
           className="text-blue-600 drop-shadow-lg"
         >
@@ -46,7 +46,7 @@ export default function PaperPlane() {
         </svg>
 
         {/* Trail dots */}
-        <div className="absolute top-7 right-12 flex flex-row-reverse space-x-1 space-x-reverse">
+        <div className="absolute top-4.5 right-8 flex flex-row-reverse space-x-1 space-x-reverse">
           {[...Array(4)].map((_, i) => (
             <motion.div
               key={i}

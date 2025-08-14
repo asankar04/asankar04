@@ -64,19 +64,19 @@ export default function LandingPage() {
     >
       {/* Name */}
       <ScheduleBoardText className="text-4xl font-bold">
-        ANIT SANKAR
+        Anit Sankar
       </ScheduleBoardText>
 
       {/* Job title & Location */}
       <ScheduleBoardText className="text-xl">
-        SOFTWARE ENGINEER | BIRMINGHAM, AL
+        Software Engineer | Birmingham, AL
       </ScheduleBoardText>
 
       {/* Bio */}
       <ScheduleBoardText className="text-base leading-relaxed max-w-2xl mx-auto">
-        BUILDING COOL STUFF AND EXPLORING NEW IDEAS.
+        Building cool stuff and exploring new ideas.
         <br />
-        COMPUTER SCIENCE @ UAB. BIG AVGEEK.
+        Computer Science @ UAB. Big avgeek.
       </ScheduleBoardText>
     </motion.div>
   );
