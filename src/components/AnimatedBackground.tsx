@@ -11,6 +11,7 @@ interface Plane {
 
 export default function AnimatedBackground() {
   const [planes, setPlanes] = useState<Plane[]>([]);
+  const [viewportHeight, setViewportHeight] = useState(0);
 
   const generatePlanes = () => {
     const newPlanes: Plane[] = [];
@@ -26,8 +27,16 @@ export default function AnimatedBackground() {
     setPlanes(newPlanes);
   };
 
+  // Cache viewport height
+  const updateViewportHeight = () => setViewportHeight(window.innerHeight);
+
   useEffect(() => {
+    updateViewportHeight();
     generatePlanes();
+
+    // Update viewport height on rezie
+    window.addEventListener('resize', updateViewportHeight);
+    return () => window.removeEventListener('resize', updateViewportHeight);
   }, []);
 
   return (
@@ -49,7 +58,7 @@ export default function AnimatedBackground() {
             rotate: 0,
           }}
           animate={{
-            y: window.innerHeight + 50,
+            y: viewportHeight + 50, // Use cached height instead of window.innerHeight
             rotate: [0, 10, -10, 0],
             x: [0, 30, -20, 0],
           }}

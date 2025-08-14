@@ -58,7 +58,7 @@ export default function Header() {
 
       <nav className="max-w-6xl mx-auto px-4 py-3">
         {/* 3 columns: left spacer, middle (auto width), right */}
-        <div className="grid grid-cols-[1fr_auto_1fr] items-center">
+        <div className="grid grid-cols-[auto_1fr_1fr] items-center">
           {/* Centered nav */}
           <div className="col-start-2 justify-self-center">
             <div className="flex space-x-8 text-center">
