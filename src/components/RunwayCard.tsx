@@ -14,11 +14,14 @@ export default function RunwayCard({
   return (
     <motion.div
       whileHover={{ scale: 1.02 }}
-      className="relative bg-gray-800 p-6 rounded-lg overflow-hidden border-2 border-yellow-400 border-dashed"
+      className="relative bg-gray-800 p-6 rounded-lg overflow-hidden border-2 border-yellow-400 border-dotted"
+      style={{
+        borderStyle: 'solid solid dotted dotted',
+        borderColor:
+          'rgb(250 204 21) rgb(250 204 21) rgb(59 130 246) rgb(59 130 246)',
+        borderWidth: '2px 2px 3px 3px',
+      }}
     >
-      {/* Runway centerline */}
-      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-full h-1 bg-yellow-400 opacity-20" />
-
       {/* Content */}
       <div className="relative z-10">
         <div className="flex flex-col justify-between items-start mb-4">
@@ -30,22 +33,6 @@ export default function RunwayCard({
           </div>
           <p className="text-yellow-400 font-semibold">{company}</p>
         </div>
-      </div>
-
-      {/* Runway edge lights */}
-      <div className="absolute bottom-2 left-0 right-0 flex justify-between px-4">
-        {[...Array(8)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="w-1 h-1 bg-blue-400 rounded-full"
-            animate={{ opacity: [0.5, 1, 0.5] }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              delay: i * 0.2,
-            }}
-          />
-        ))}
       </div>
     </motion.div>
   );
