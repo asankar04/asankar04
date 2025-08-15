@@ -11,9 +11,9 @@ export default function PaperPlane() {
 
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
-      // Set plane position to mouse position
-      x.set(event.clientX - 30); // Offset by half the plane width
-      y.set(event.clientY - 30); // Offset by half the plane height
+      // Mouse alignment on plane tip
+      x.set(event.clientX - 36); // Offset so airplane tip (90% of 40px)
+      y.set(event.clientY - 20); // Offset so airplane tip (50% of 40px)
     };
 
     window.addEventListener('mousemove', handleMouseMove);

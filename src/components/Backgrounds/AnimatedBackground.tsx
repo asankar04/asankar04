@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { type ThemeColor } from '../../utils/themes';
 
 interface Plane {
   id: number;
@@ -9,7 +10,11 @@ interface Plane {
   duration: number;
 }
 
-export default function AnimatedBackground() {
+interface AnimatedBackgroundProps {
+  color: ThemeColor;
+}
+
+export default function AnimatedBackground({ color }: AnimatedBackgroundProps) {
   const [planes, setPlanes] = useState<Plane[]>([]);
   const [viewportHeight, setViewportHeight] = useState(0);
 
@@ -50,9 +55,11 @@ export default function AnimatedBackground() {
         planes.map((plane) => (
           <motion.div
             key={plane.id}
-            className="absolute text-blue-400/40"
+            className="absolute"
             style={{
               left: `${plane.x}%`,
+              color: color.primary,
+              opacity: 0.6,
             }}
             initial={{
               y: -50,
