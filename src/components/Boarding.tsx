@@ -9,6 +9,7 @@ interface BoardingProps {
 }
 
 export default function Boarding({ setCurrentSection, color }: BoardingProps) {
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const [currentTime, setCurrentTime] = useState(new Date());
 
   // Update time every minute
@@ -28,13 +29,20 @@ export default function Boarding({ setCurrentSection, color }: BoardingProps) {
     second: '2-digit',
   });
 
+  const handleTransition = (section: string) => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentSection(section);
+      setIsTransitioning(false);
+    }, 300);
+  };
+
   return (
     <motion.div
       className="relative z-10 min-h-screen flex items-center justify-center px-4"
-      initial={{ x: '100vw' }}
-      animate={{ x: 0 }}
+      animate={{ x: isTransitioning ? '100vw' : 0 }}
       transition={{
-        duration: 0.2,
+        duration: 0.4,
         ease: 'easeInOut',
       }}
     >
@@ -58,7 +66,7 @@ export default function Boarding({ setCurrentSection, color }: BoardingProps) {
             borderColor: color.primary,
             color: color.primary,
           }}
-          onClick={() => setCurrentSection('checkIn')}
+          onClick={() => handleTransition('checkIn')}
         >
           RETURN
           <LogOut size={16} className="transform -scale-x-100" />

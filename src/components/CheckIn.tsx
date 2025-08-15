@@ -15,7 +15,8 @@ export default function CheckIn({ setCurrentSection, color }: CheckInProps) {
     setIsTransitioning(true);
     setTimeout(() => {
       setCurrentSection('boarding');
-    }, 800);
+      setIsTransitioning(false);
+    }, 300);
   };
 
   return (
@@ -25,7 +26,7 @@ export default function CheckIn({ setCurrentSection, color }: CheckInProps) {
         x: isTransitioning ? '-100vw' : 0,
       }}
       transition={{
-        duration: 0.8,
+        duration: 0.4,
         ease: 'easeInOut',
       }}
     >
