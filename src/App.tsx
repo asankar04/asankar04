@@ -5,9 +5,11 @@ import { useState } from 'react';
 import Boarding from './components/Boarding';
 import ThemePicker from './components/ThemePicker';
 import { themes, type ThemeName } from './utils/themes';
+import Experience from './components/Experience';
 
 function App() {
   const [currentSection, setCurrentSection] = useState('checkIn');
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const [currentTheme, setCurrentTheme] = useState<ThemeName>('yellow');
 
   const color = themes[currentTheme];
@@ -24,6 +26,14 @@ function App() {
     root.style.setProperty('--theme-primary-hover', themeColor);
   };
 
+  const handleSectionChange = (section: string) => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentSection(section);
+      setIsTransitioning(false);
+    }, 300);
+  };
+
   return (
     <div className="min-h-screen relative">
       {/* Theme Picker - top left */}
@@ -36,10 +46,25 @@ function App() {
 
       {/* Welcome screen content */}
       {currentSection === 'checkIn' && (
-        <CheckIn setCurrentSection={setCurrentSection} color={color} />
+        <CheckIn
+          handleSectionChange={handleSectionChange}
+          isTransitioning={isTransitioning}
+          color={color}
+        />
       )}
       {currentSection === 'boarding' && (
-        <Boarding setCurrentSection={setCurrentSection} color={color} />
+        <Boarding
+          handleSectionChange={handleSectionChange}
+          isTransitioning={isTransitioning}
+          color={color}
+        />
+      )}
+      {currentSection === 'experience' && (
+        <Experience
+          handleSectionChange={handleSectionChange}
+          isTransitioning={isTransitioning}
+          color={color}
+        />
       )}
     </div>
   );

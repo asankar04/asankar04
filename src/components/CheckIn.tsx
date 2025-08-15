@@ -1,24 +1,17 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
 import { type ThemeColor } from '../utils/themes';
 
 interface CheckInProps {
-  setCurrentSection: (section: string) => void;
+  handleSectionChange: (section: string) => void;
+  isTransitioning: boolean;
   color: ThemeColor;
 }
 
-export default function CheckIn({ setCurrentSection, color }: CheckInProps) {
-  const [isTransitioning, setIsTransitioning] = useState(false);
-
-  // Creates delay for sliding transition
-  const handleCheckIn = () => {
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setCurrentSection('boarding');
-      setIsTransitioning(false);
-    }, 300);
-  };
-
+export default function CheckIn({
+  handleSectionChange,
+  isTransitioning,
+  color,
+}: CheckInProps) {
   return (
     <motion.div
       className="relative z-10 min-h-screen bg-black/40 flex flex-col items-center justify-center px-4"
@@ -72,7 +65,7 @@ export default function CheckIn({ setCurrentSection, color }: CheckInProps) {
           boxShadow: { duration: 0.3, ease: 'easeOut' },
         }}
         whileTap={{ scale: 0.98 }}
-        onClick={handleCheckIn}
+        onClick={() => handleSectionChange('boarding')}
         className="bg-gray-900/90 border-2 border-dashed 
                px-12 py-6 text-2xl font-mono font-bold 
                tracking-widest rounded-sm"

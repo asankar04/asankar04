@@ -1,15 +1,20 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { LogOut, Briefcase, ArrowRight, ArrowDown, Globe } from 'lucide-react';
+import ReturnButton from './Custom/ReturnButton';
+import { Briefcase, ArrowRight, ArrowDown, Globe } from 'lucide-react';
 import { type ThemeColor } from '../utils/themes';
 
 interface BoardingProps {
-  setCurrentSection: (section: string) => void;
+  handleSectionChange: (section: string) => void;
+  isTransitioning: boolean;
   color: ThemeColor;
 }
 
-export default function Boarding({ setCurrentSection, color }: BoardingProps) {
-  const [isTransitioning, setIsTransitioning] = useState(false);
+export default function Boarding({
+  handleSectionChange,
+  isTransitioning,
+  color,
+}: BoardingProps) {
   const [currentTime, setCurrentTime] = useState(new Date());
 
   // Update time every minute
@@ -29,14 +34,6 @@ export default function Boarding({ setCurrentSection, color }: BoardingProps) {
     second: '2-digit',
   });
 
-  const handleTransition = (section: string) => {
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setCurrentSection(section);
-      setIsTransitioning(false);
-    }, 300);
-  };
-
   return (
     <motion.div
       className="relative z-10 bg-black/40 min-h-screen flex flex-col md:gap-8 gap-6 items-center justify-center px-4"
@@ -50,31 +47,10 @@ export default function Boarding({ setCurrentSection, color }: BoardingProps) {
       }}
     >
       {/* Return Button */}
-      <motion.div
-        className="absolute top-8 left-4"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.5 }}
-      >
-        <motion.button
-          whileHover={{
-            scale: 1.05,
-            backgroundColor: color.primary,
-            boxShadow: `0 0 30px ${color.primary}66`, // 66 = 40% opacity
-            color: 'white',
-          }}
-          whileTap={{ scale: 0.98 }}
-          className="bg-gray-900/90 border-2 px-4 py-2 rounded-md font-mono font-bold tracking-wide flex items-center gap-2"
-          style={{
-            borderColor: color.primary,
-            color: color.primary,
-          }}
-          onClick={() => handleTransition('checkIn')}
-        >
-          RETURN
-          <LogOut size={16} className="transform -scale-x-100" />
-        </motion.button>
-      </motion.div>
+      <ReturnButton
+        color={color}
+        handleSectionChange={() => handleSectionChange('checkIn')}
+      />
 
       {/* Airport Sign redirect - Experiences */}
       <motion.div
@@ -107,7 +83,7 @@ export default function Boarding({ setCurrentSection, color }: BoardingProps) {
             boxShadow: `0 0 30px ${color.primary}44`,
           }}
           whileTap={{ scale: 0.98 }}
-          onClick={() => handleTransition('experiences')}
+          onClick={() => handleSectionChange('experience')}
         >
           <div className="px-5 py-3 flex items-center justify-between">
             <div className="flex items-center gap-4">
@@ -274,7 +250,7 @@ export default function Boarding({ setCurrentSection, color }: BoardingProps) {
             boxShadow: `0 0 30px ${color.primary}44`,
           }}
           whileTap={{ scale: 0.98 }}
-          onClick={() => handleTransition('projects')}
+          onClick={() => handleSectionChange('projects')}
         >
           <div className="px-5 py-3 flex items-center justify-between">
             <div className="flex items-center gap-4">
