@@ -22,10 +22,9 @@ export default function CheckIn({ setCurrentSection, color }: CheckInProps) {
   return (
     <motion.div
       className="relative z-10 min-h-screen bg-black/40 flex flex-col items-center justify-center px-4"
-      initial={{ x: '-100vw', scale: 0.6 }}
+      initial={{ scale: 0.8 }}
       animate={{
-        x: isTransitioning ? '-100vw' : 0,
-        scale: isTransitioning ? 0.6 : 1,
+        scale: isTransitioning ? 0.8 : 1,
       }}
       transition={{
         duration: 0.4,
