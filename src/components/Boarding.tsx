@@ -48,15 +48,15 @@ export default function Boarding({ setCurrentSection, color }: BoardingProps) {
         <motion.button
           whileHover={{
             scale: 1.05,
+            backgroundColor: color.primary,
             boxShadow: `0 0 30px ${color.primary}66`, // 66 = 40% opacity
             color: 'white',
           }}
           whileTap={{ scale: 0.98 }}
-          className="border-2 px-4 py-2 rounded-md font-mono font-bold tracking-wide transition-colors flex items-center gap-2"
+          className="bg-gray-900/90 border-2 px-4 py-2 rounded-md font-mono font-bold tracking-wide flex items-center gap-2"
           style={{
-            backgroundColor: color.primary,
             borderColor: color.primary,
-            color: '#111827',
+            color: color.primary,
           }}
           onClick={() => setCurrentSection('checkIn')}
         >
