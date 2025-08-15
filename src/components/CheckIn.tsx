@@ -22,8 +22,10 @@ export default function CheckIn({ setCurrentSection, color }: CheckInProps) {
   return (
     <motion.div
       className="relative z-10 min-h-screen bg-black/40 flex flex-col items-center justify-center px-4"
+      initial={{ x: '-100vw', scale: 0.6 }}
       animate={{
         x: isTransitioning ? '-100vw' : 0,
+        scale: isTransitioning ? 0.6 : 1,
       }}
       transition={{
         duration: 0.4,
@@ -33,7 +35,7 @@ export default function CheckIn({ setCurrentSection, color }: CheckInProps) {
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.3 }}
+        transition={{ duration: 1 }}
         className="text-center mb-12"
       >
         <motion.h1

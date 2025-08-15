@@ -39,8 +39,12 @@ export default function Boarding({ setCurrentSection, color }: BoardingProps) {
 
   return (
     <motion.div
-      className="relative z-10 min-h-screen flex items-center justify-center px-4"
-      animate={{ x: isTransitioning ? '100vw' : 0 }}
+      className="relative z-10 bg-black/40 min-h-screen flex items-center justify-center px-4"
+      initial={{ x: '100vw', scale: 0.6 }}
+      animate={{
+        x: isTransitioning ? '100vw' : 0,
+        scale: isTransitioning ? 0.6 : 1,
+      }}
       transition={{
         duration: 0.4,
         ease: 'easeInOut',
@@ -75,7 +79,7 @@ export default function Boarding({ setCurrentSection, color }: BoardingProps) {
 
       {/* Boarding Pass Card */}
       <motion.div
-        className="bg-gray-900/60 backdrop-blur-sm border rounded-lg shadow-2xl 
+        className="bg-gray-900/50 backdrop-blur-sm border rounded-lg shadow-2xl 
                    max-w-lg w-full overflow-hidden"
         style={{ borderColor: color.primary }}
         initial={{ scale: 0.8, opacity: 0 }}
