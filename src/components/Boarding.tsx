@@ -36,7 +36,7 @@ export default function Boarding({
 
   return (
     <motion.div
-      className="relative z-10 bg-black/40 min-h-screen flex flex-col md:gap-8 gap-6 items-center justify-center px-4"
+      className="relative z-10 bg-black/40 min-h-screen flex flex-col md:gap-8 gap-8 pt-10 items-center justify-center px-4"
       initial={{ scale: 0.8 }}
       animate={{
         scale: isTransitioning ? 0.8 : 1,
@@ -52,57 +52,6 @@ export default function Boarding({
         handleSectionChange={() => handleSectionChange('checkIn')}
       />
 
-      {/* Airport Sign redirect - Experiences */}
-      <motion.div
-        className="w-full max-w-lg"
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{
-          scale: 1,
-          opacity: 1,
-          x: [0, 6, 0],
-        }}
-        transition={{
-          duration: 0.6,
-          delay: 0.3,
-          x: {
-            duration: 3,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          },
-        }}
-      >
-        <motion.button
-          className="relative rounded-xl border-2 border-black
-                     w-full overflow-hidden group cursor-pointer"
-          style={{
-            backgroundColor: color.primary,
-            boxShadow: `0 0 30px ${color.primary}11`,
-          }}
-          whileHover={{
-            scale: 1.05,
-            boxShadow: `0 0 30px ${color.primary}44`,
-          }}
-          whileTap={{ scale: 0.98 }}
-          onClick={() => handleSectionChange('experience')}
-        >
-          <div className="px-5 py-3 flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <div className="rounded-md p-2 group-hover:animate-pulse">
-                <Globe size={36} color="black" />
-              </div>
-
-              <h2 className="text-black font-mono font-bold text-4xl tracking-wide group-hover:animate-pulse">
-                EXPERIENCE
-              </h2>
-            </div>
-
-            <div className="p-1 group-hover:animate-pulse">
-              <ArrowRight size={40} color="black" />
-            </div>
-          </div>
-        </motion.button>
-      </motion.div>
-
       {/* Boarding Pass Card */}
       <motion.div
         className="bg-gray-900/50 backdrop-blur-sm border rounded-lg shadow-2xl 
@@ -116,7 +65,7 @@ export default function Boarding({
         }}
         transition={{
           duration: 0.6,
-          delay: 0.5,
+          delay: 0.3,
           y: {
             duration: 4,
             repeat: Infinity,
@@ -217,6 +166,57 @@ export default function Boarding({
             WELCOME ABOARD FLIGHT AS-2024
           </p>
         </div>
+      </motion.div>
+
+      {/* Airport Sign redirect - Experiences */}
+      <motion.div
+        className="w-full max-w-lg"
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{
+          scale: 1,
+          opacity: 1,
+          x: [0, 6, 0],
+        }}
+        transition={{
+          duration: 0.6,
+          delay: 0.5,
+          x: {
+            duration: 3,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          },
+        }}
+      >
+        <motion.button
+          className="relative rounded-xl border-2 border-black
+                     w-full overflow-hidden group cursor-pointer"
+          style={{
+            backgroundColor: color.primary,
+            boxShadow: `0 0 30px ${color.primary}11`,
+          }}
+          whileHover={{
+            scale: 1.05,
+            boxShadow: `0 0 30px ${color.primary}44`,
+          }}
+          whileTap={{ scale: 0.98 }}
+          onClick={() => handleSectionChange('experience')}
+        >
+          <div className="px-5 py-3 flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <div className="rounded-md p-2 group-hover:animate-pulse">
+                <Globe size={36} color="black" />
+              </div>
+
+              <h2 className="text-black font-mono font-bold text-4xl tracking-wide group-hover:animate-pulse">
+                EXPERIENCE
+              </h2>
+            </div>
+
+            <div className="p-1 group-hover:animate-pulse">
+              <ArrowRight size={40} color="black" />
+            </div>
+          </div>
+        </motion.button>
       </motion.div>
 
       {/* Airport Sign redirect - Projects */}
