@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion';
 import ReturnButton from './Custom/ReturnButton';
 import { type ThemeColor } from '../utils/themes';
+import type { Section } from '../hooks/useSection';
 
 interface ExperienceProps {
   color: ThemeColor;
-  handleSectionChange: (section: string) => void;
+  handleSectionChange: (section: Section) => void;
   isTransitioning: boolean;
 }
 

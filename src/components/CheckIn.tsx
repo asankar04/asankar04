@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
 import { type ThemeColor } from '../utils/themes';
+import type { Section } from '../hooks/useSection';
 
 interface CheckInProps {
-  handleSectionChange: (section: string) => void;
+  handleSectionChange: (section: Section) => void;
   isTransitioning: boolean;
   color: ThemeColor;
 }

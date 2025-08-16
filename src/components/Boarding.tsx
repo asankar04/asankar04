@@ -3,9 +3,10 @@ import { useEffect, useState } from 'react';
 import ReturnButton from './Custom/ReturnButton';
 import { Briefcase, ArrowRight, ArrowDown, Globe } from 'lucide-react';
 import { type ThemeColor } from '../utils/themes';
+import type { Section } from '../hooks/useSection';
 
 interface BoardingProps {
-  handleSectionChange: (section: string) => void;
+  handleSectionChange: (section: Section) => void;
   isTransitioning: boolean;
   color: ThemeColor;
 }

@@ -1,10 +1,12 @@
 import { useState } from 'react';
 
+export type Section = 'checkIn' | 'boarding' | 'experience' | 'projects';
+
 export function useSection() {
-  const [currentSection, setCurrentSection] = useState('checkIn');
+  const [currentSection, setCurrentSection] = useState<Section>('checkIn');
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  const handleSectionChange = (section: string) => {
+  const handleSectionChange = (section: Section) => {
     setIsTransitioning(true);
     setTimeout(() => {
       setCurrentSection(section);
