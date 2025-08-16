@@ -15,14 +15,6 @@ export default function ThemePicker({
   const [isOpen, setIsOpen] = useState(false);
   const availableThemes = Object.keys(themes) as ThemeName[];
 
-  const themeColors = {
-    blue: '#3b82f6',
-    yellow: '#facc15',
-    red: '#ef4444',
-    green: '#10b981',
-    purple: '#8b5cf6',
-  };
-
   const handleThemeSelect = (theme: ThemeName) => {
     setTheme(theme);
     setIsOpen(false);
@@ -47,9 +39,8 @@ export default function ThemePicker({
           <div
             className="w-6 h-6 rounded-lg border-2 border-white shadow-sm"
             style={{
-              backgroundColor:
-                themeColors[currentTheme as keyof typeof themeColors],
-              boxShadow: `0 0 10px ${themeColors[currentTheme as keyof typeof themeColors]}40`,
+              backgroundColor: themes[currentTheme].primary,
+              boxShadow: `0 0 10px ${themes[currentTheme].primary}40`,
             }}
           />
 
@@ -93,8 +84,7 @@ export default function ThemePicker({
                           : 'border-gray-600'
                       }`}
                       style={{
-                        backgroundColor:
-                          themeColors[theme as keyof typeof themeColors],
+                        backgroundColor: themes[theme].primary,
                       }}
                     />
                   </motion.button>

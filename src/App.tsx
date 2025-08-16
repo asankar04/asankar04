@@ -1,45 +1,22 @@
 import AnimatedBackground from './components/Backgrounds/AnimatedBackground';
 import PaperPlane from './components/Custom/PaperPlane';
 import CheckIn from './components/CheckIn';
-import { useState } from 'react';
 import Boarding from './components/Boarding';
 import ThemePicker from './components/ThemePicker';
-import { themes, type ThemeName } from './utils/themes';
 import Experience from './components/Experience';
+import { useTheme } from './hooks/useTheme';
+import { useSection } from './hooks/useSection';
 
 function App() {
-  const [currentSection, setCurrentSection] = useState('checkIn');
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const [currentTheme, setCurrentTheme] = useState<ThemeName>('yellow');
-
-  const color = themes[currentTheme];
-
-  const handleThemeChange = (theme: ThemeName) => {
-    // Update current theme
-    setCurrentTheme(theme);
-
-    // Update CSS colors for scrollbars
-    const root = document.documentElement;
-    const themeColor = themes[theme].primary;
-
-    root.style.setProperty('--theme-primary', themeColor);
-    root.style.setProperty('--theme-primary-hover', themeColor);
-  };
-
-  const handleSectionChange = (section: string) => {
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setCurrentSection(section);
-      setIsTransitioning(false);
-    }, 300);
-  };
+  const { currentTheme, changeTheme, color } = useTheme();
+  const { currentSection, isTransitioning, handleSectionChange } = useSection();
 
   return (
     <div className="min-h-screen relative">
-      {/* Theme Picker - top left */}
-      <ThemePicker currentTheme={currentTheme} setTheme={handleThemeChange} />
+      {/* Theme Picker */}
+      <ThemePicker currentTheme={currentTheme} setTheme={changeTheme} />
 
-      {/* Animated aviation background */}
+      {/* Animated Dark background */}
       <AnimatedBackground color={color} />
       {/* PaperPlane Cursor */}
       <PaperPlane />
