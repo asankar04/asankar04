@@ -194,7 +194,8 @@ export default function Boarding({
         }}
       >
         <motion.div
-          whileHover={{ scale: 1.05 }}
+          className="rounded-2xl"
+          whileHover={{ scale: 1.05, boxShadow: `0 0 30px ${color.primary}33` }}
           whileTap={{ scale: 0.98 }}
           transition={{ duration: 0.2, ease: 'easeOut' }}
         >
@@ -251,7 +252,8 @@ export default function Boarding({
         }}
       >
         <motion.div
-          whileHover={{ scale: 1.05 }}
+          className="rounded-2xl"
+          whileHover={{ scale: 1.05, boxShadow: `0 0 30px ${color.primary}33` }}
           whileTap={{ scale: 0.98 }}
           transition={{ duration: 0.2, ease: 'easeOut' }}
         >

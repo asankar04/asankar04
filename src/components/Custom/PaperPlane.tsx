@@ -12,8 +12,8 @@ export default function PaperPlane() {
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
       // Mouse alignment on plane tip
-      x.set(event.clientX - 36); // Offset so airplane tip (90% of 40px)
-      y.set(event.clientY - 20); // Offset so airplane tip (50% of 40px)
+      x.set(event.clientX - 20); // Offset so airplane tip (50% of 40px)
+      y.set(event.clientY - 4); // Offset so airplane tip (10% of 40px)
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -27,18 +27,19 @@ export default function PaperPlane() {
       style={{
         x: springX,
         y: springY,
+        rotate: -30,
       }}
     >
       <div className="relative">
         <svg
-          width="40"
-          height="40"
+          width="35"
+          height="35"
           viewBox="0 0 100 100"
           className="text-blue-600 drop-shadow-lg"
         >
           {/* Plane */}
           <polygon
-            points="90,50 20,20 35,50 20,80"
+            points="50,10 20,80 50,65 80,80"
             fill="currentColor"
             stroke="white"
             strokeWidth="2"
@@ -46,8 +47,8 @@ export default function PaperPlane() {
         </svg>
 
         {/* Trail dots */}
-        <div className="absolute top-4.5 right-8 flex flex-row-reverse space-x-1 space-x-reverse">
-          {[...Array(4)].map((_, i) => (
+        <div className="absolute top-7.5 left-4 flex flex-col space-y-1">
+          {[...Array(3)].map((_, i) => (
             <motion.div
               key={i}
               className="w-1 h-1 bg-blue-400 rounded-full"
