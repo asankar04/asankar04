@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import { themes, type ThemeName } from '../utils/themes';
+import { themes, type ThemeName } from '../../utils/themes';
 
 interface ThemePickerProps {
   currentTheme: ThemeName;

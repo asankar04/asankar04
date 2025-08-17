@@ -2,7 +2,7 @@ import AnimatedBackground from './components/Backgrounds/AnimatedBackground';
 import PaperPlane from './components/Custom/PaperPlane';
 import CheckIn from './components/CheckIn';
 import Boarding from './components/Boarding';
-import ThemePicker from './components/ThemePicker';
+import ThemePicker from './components/Custom/ThemePicker';
 import Experience from './components/Experience';
 import { useTheme } from './hooks/useTheme';
 import { useSection } from './hooks/useSection';
