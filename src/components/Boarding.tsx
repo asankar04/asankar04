@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import ReturnButton from './Custom/ReturnButton';
+import Shimmer from './Custom/Shimmer';
 import { Briefcase, ArrowRight, ArrowDown, Globe } from 'lucide-react';
 import { type ThemeColor } from '../utils/themes';
 import type { Section } from '../hooks/useSection';
@@ -75,14 +76,18 @@ export default function Boarding({
         }}
       >
         {/* Header */}
-        <div
+        <Shimmer
           className="text-gray-900 px-6 py-3"
-          style={{ backgroundColor: color.primary }}
+          style={{
+            background: color.primary,
+          }}
+          intensity={0.3}
+          delay={0.5}
         >
           <h2 className="font-mono font-bold text-lg tracking-wider text-center">
             BOARDING PASS
           </h2>
-        </div>
+        </Shimmer>
 
         {/* Content */}
         <div className="p-6 space-y-6">
@@ -188,36 +193,42 @@ export default function Boarding({
           },
         }}
       >
-        <motion.button
-          className="relative rounded-xl border-2 border-black
-                     w-full overflow-hidden group cursor-pointer"
-          style={{
-            backgroundColor: color.primary,
-            boxShadow: `0 0 30px ${color.primary}11`,
-          }}
-          whileHover={{
-            scale: 1.05,
-            boxShadow: `0 0 30px ${color.primary}44`,
-          }}
+        <motion.div
+          whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.98 }}
-          onClick={() => handleSectionChange('experience')}
+          transition={{ duration: 0.2, ease: 'easeOut' }}
         >
-          <div className="px-5 py-3 flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <div className="rounded-md p-2 group-hover:animate-pulse">
-                <Globe size={36} color="black" />
+          <Shimmer
+            className="rounded-2xl border backdrop-blur-xl w-full cursor-pointer"
+            style={{
+              background: color.primary,
+              borderColor: `${color.primary}40`,
+            }}
+            delay={1}
+            intensity={0.3}
+          >
+            <button
+              className="w-full group"
+              onClick={() => handleSectionChange('experience')}
+            >
+              <div className="px-5 py-3 flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="rounded-md p-2 group-hover:animate-pulse">
+                    <Globe size={36} color="black" />
+                  </div>
+
+                  <h2 className="text-black font-mono font-bold text-4xl tracking-wide group-hover:animate-pulse">
+                    EXPERIENCE
+                  </h2>
+                </div>
+
+                <div className="p-1 group-hover:animate-pulse">
+                  <ArrowRight size={40} color="black" />
+                </div>
               </div>
-
-              <h2 className="text-black font-mono font-bold text-4xl tracking-wide group-hover:animate-pulse">
-                EXPERIENCE
-              </h2>
-            </div>
-
-            <div className="p-1 group-hover:animate-pulse">
-              <ArrowRight size={40} color="black" />
-            </div>
-          </div>
-        </motion.button>
+            </button>
+          </Shimmer>
+        </motion.div>
       </motion.div>
 
       {/* Airport Sign redirect - Projects */}
@@ -239,36 +250,43 @@ export default function Boarding({
           },
         }}
       >
-        <motion.button
-          className="relative rounded-xl border-2 border-black
-                     w-full overflow-hidden group cursor-pointer"
-          style={{
-            backgroundColor: color.primary,
-            boxShadow: `0 0 30px ${color.primary}11`,
-          }}
-          whileHover={{
-            scale: 1.05,
-            boxShadow: `0 0 30px ${color.primary}44`,
-          }}
+        <motion.div
+          whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.98 }}
-          onClick={() => handleSectionChange('projects')}
+          transition={{ duration: 0.2, ease: 'easeOut' }}
         >
-          <div className="px-5 py-3 flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <div className="rounded-md p-2 group-hover:animate-pulse">
-                <Briefcase size={36} color="black" />
+          <Shimmer
+            className="rounded-2xl border backdrop-blur-xl w-full cursor-pointer"
+            style={{
+              background: color.primary,
+              borderColor: `${color.primary}40`,
+              boxShadow: `0 0 30px ${color.primary}11`,
+            }}
+            delay={1.5}
+            intensity={0.3}
+          >
+            <button
+              className="w-full group"
+              onClick={() => handleSectionChange('projects')}
+            >
+              <div className="px-5 py-3 flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="rounded-md p-2 group-hover:animate-pulse">
+                    <Briefcase size={36} color="black" />
+                  </div>
+
+                  <h2 className="text-black font-mono font-bold text-4xl tracking-wide group-hover:animate-pulse">
+                    PROJECTS
+                  </h2>
+                </div>
+
+                <div className="p-1 group-hover:animate-pulse">
+                  <ArrowDown size={40} color="black" />
+                </div>
               </div>
-
-              <h2 className="text-black font-mono font-bold text-4xl tracking-wide group-hover:animate-pulse">
-                PROJECTS
-              </h2>
-            </div>
-
-            <div className="p-1 group-hover:animate-pulse">
-              <ArrowDown size={40} color="black" />
-            </div>
-          </div>
-        </motion.button>
+            </button>
+          </Shimmer>
+        </motion.div>
       </motion.div>
     </motion.div>
   );
