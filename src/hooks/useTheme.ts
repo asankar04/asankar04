@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { themes, type ThemeName } from '../utils/themes';
 
 export function useTheme() {
-  const [currentTheme, setCurrentTheme] = useState<ThemeName>('yellow');
+  const [currentTheme, setCurrentTheme] = useState<ThemeName>('green');
 
   const changeTheme = (theme: ThemeName) => {
     setCurrentTheme(theme);
