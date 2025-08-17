@@ -19,7 +19,7 @@ function App() {
       {/* Animated Dark background */}
       <AnimatedBackground color={color} />
       {/* PaperPlane Cursor */}
-      <PaperPlane />
+      <PaperPlane color={color} />
 
       {/* Main Sections */}
       {currentSection === 'checkIn' && (

@@ -1,7 +1,12 @@
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { useEffect } from 'react';
+import type { ThemeColor } from '../../utils/themes';
 
-export default function PaperPlane() {
+interface PaperPlaneProps {
+  color: ThemeColor;
+}
+
+export default function PaperPlane({ color }: PaperPlaneProps) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -35,13 +40,15 @@ export default function PaperPlane() {
           width="35"
           height="35"
           viewBox="0 0 100 100"
-          className="text-blue-600 drop-shadow-lg"
+          className="drop-shadow-lg"
         >
           {/* Plane */}
           <polygon
             points="50,10 20,80 50,65 80,80"
             fill="currentColor"
-            stroke="white"
+            style={{
+              stroke: color.primary,
+            }}
             strokeWidth="2"
           />
         </svg>
@@ -51,7 +58,12 @@ export default function PaperPlane() {
           {[...Array(3)].map((_, i) => (
             <motion.div
               key={i}
-              className="w-1 h-1 bg-blue-400 rounded-full"
+              className="w-1 h-1 rounded-full"
+              style={{
+                backgroundColor: 'black',
+                outline: '1px solid',
+                outlineColor: color.primary,
+              }}
               animate={{
                 opacity: [1, 0.2, 1],
                 scale: [1, 0.3, 1],
