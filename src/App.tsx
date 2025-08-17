@@ -21,7 +21,7 @@ function App() {
       {/* PaperPlane Cursor */}
       <PaperPlane />
 
-      {/* Welcome screen content */}
+      {/* Main Sections */}
       {currentSection === 'checkIn' && (
         <CheckIn
           handleSectionChange={handleSectionChange}

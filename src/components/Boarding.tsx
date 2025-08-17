@@ -37,7 +37,7 @@ export default function Boarding({
 
   return (
     <motion.div
-      className="relative z-10 bg-black/40 min-h-screen flex flex-col md:gap-8 gap-8 pt-10 items-center justify-center px-4"
+      className="relative z-10 bg-black/40 min-h-screen flex flex-col md:gap-8 gap-6 pt-10 items-center justify-center px-4"
       initial={{ scale: 0.8 }}
       animate={{
         scale: isTransitioning ? 0.8 : 1,
@@ -56,7 +56,7 @@ export default function Boarding({
       {/* Boarding Pass Card */}
       <motion.div
         className="bg-gray-900/50 backdrop-blur-sm border rounded-lg shadow-2xl 
-                   max-w-lg w-full overflow-hidden"
+                   max-w-lg w-full overflow-hidden max-md:scale-90"
         style={{ borderColor: color.primary }}
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{
@@ -171,7 +171,7 @@ export default function Boarding({
 
       {/* Airport Sign redirect - Experiences */}
       <motion.div
-        className="w-full max-w-lg"
+        className="w-full max-w-lg max-md:scale-90"
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{
           scale: 1,
@@ -222,7 +222,7 @@ export default function Boarding({
 
       {/* Airport Sign redirect - Projects */}
       <motion.div
-        className="w-full max-w-lg"
+        className="w-full max-w-lg max-md:scale-90"
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{
           scale: 1,

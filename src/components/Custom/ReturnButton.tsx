@@ -23,7 +23,7 @@ export default function ReturnButton({
           scale: 1.05,
           backgroundColor: color.primary,
           boxShadow: `0 0 30px ${color.primary}66`, // 66 = 40% opacity
-          color: 'white',
+          color: '#000',
         }}
         whileTap={{ scale: 0.98 }}
         className="bg-gray-900/90 border-2 px-4 py-2 rounded-md font-mono font-bold tracking-wide flex items-center gap-2"

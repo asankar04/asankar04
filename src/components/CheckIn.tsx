@@ -55,7 +55,7 @@ export default function CheckIn({
         whileHover={{
           scale: 1.05,
           backgroundColor: color.primary,
-          color: 'white',
+          color: '#000',
           boxShadow: `0 0 20px ${color.primary}80`,
         }}
         transition={{
