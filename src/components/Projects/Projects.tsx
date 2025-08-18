@@ -64,7 +64,7 @@ const projects: Project[] = [
     title: 'Portfolio Website',
     flightNumber: 'AS P04',
     description:
-      'This website was created to showcase my experience and projects. It follows a consistent theme and is designed with clarity in mind. I utilized HTML, CSS, JavaScript (JS), and ReactJS.',
+      'This website was created to showcase my experience and projects. It follows a consistent theme and is designed with clarity in mind. I utilized ReactJS, TailwindCSS, Vite, and TypeScript.',
     link: '/',
     techStack: ['ReactJS', 'TailwindCSS', 'Vite', 'TypeScript'],
     status: 'Completed',
@@ -148,7 +148,7 @@ export default function Projects({
         </p>
       </motion.div>
 
-      <div className="flex flex-col lg:flex-row gap-6 items-center justify-center w-full max-w-7xl">
+      <div className="flex flex-col lg:flex-row gap-6 items-center justify-center w-full max-w-7xl overflow-visible">
         {/* CircularRadar Display */}
         <motion.div
           className="relative"
@@ -157,8 +157,14 @@ export default function Projects({
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           {/* Radar Screen Container */}
-          <div
+          <motion.div
             className="relative w-96 h-96 md:w-[600px] md:h-[600px] rounded-full border-2 overflow-hidden"
+            animate={{ scale: [1, 1.02, 1] }}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
             style={{
               borderColor: color.primary,
               background: `radial-gradient(circle, rgba(0,0,0,0.9) 0%, rgba(0,20,0,0.95) 100%)`,
@@ -299,7 +305,7 @@ export default function Projects({
                 </motion.div>
               );
             })}
-          </div>
+          </motion.div>
 
           {/* Radar Info Panel */}
           <div
