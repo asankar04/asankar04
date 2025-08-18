@@ -4,9 +4,9 @@ import CheckIn from './components/CheckIn';
 import Boarding from './components/Boarding';
 import ThemePicker from './components/Custom/ThemePicker';
 import Experience from './components/Experience';
+import Projects from './components/Projects/Projects';
 import { useTheme } from './hooks/useTheme';
 import { useSection } from './hooks/useSection';
-import Projects from './components/Projects';
 
 function App() {
   const { currentTheme, changeTheme, color } = useTheme();
