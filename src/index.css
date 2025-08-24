@@ -21,8 +21,8 @@ select {
 
 /* CSS Custom Properties for Theme Colors */
 :root {
-  --theme-primary: #facc15; /* Default yellow theme */
-  --theme-primary-hover: #eab308;
+  --theme-primary: #10b981; /* Default green theme */
+  --theme-primary-hover: #10b981;
   --scrollbar-track: #1f2937;
 }
 
