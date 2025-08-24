@@ -104,7 +104,7 @@ export default function Projects({
 
   return (
     <motion.div
-      className="relative z-10 bg-black/40 min-h-screen flex flex-col items-center justify-center px-4 py-8 max-md:px-0"
+      className="relative z-10 bg-black/40 min-h-screen flex flex-col items-center justify-center px-4 py-8"
       initial={{ scale: 0.8 }}
       animate={{
         scale: isTransitioning ? 0.8 : 1,
@@ -121,7 +121,7 @@ export default function Projects({
 
       {/* Radar Header */}
       <motion.div
-        className="mb-6 text-center"
+        className="mb-6 mx-auto text-center"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
@@ -143,17 +143,17 @@ export default function Projects({
         </p>
       </motion.div>
 
-      <div className="flex flex-col lg:flex-row gap-6 items-center justify-center w-full max-w-7xl overflow-visible">
+      <div className="flex flex-col mx-4 sm:mx-8 lg:mx-10 lg:flex-row gap-6 items-center justify-center w-full max-w-7xl overflow-visible">
         {/* CircularRadar Display */}
         <motion.div
-          className="relative"
+          className="relative mx-4 sm:mx-6 md:mx-0"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           {/* Radar Screen Container */}
           <motion.div
-            className="relative w-96 h-96 md:w-[600px] md:h-[600px] rounded-full border-2 overflow-hidden"
+            className="relative w-90 h-90 sm:w-96 sm:h-96 md:w-[600px] md:h-[600px] rounded-full border-2 overflow-hidden"
             animate={{ scale: [1, 1.02, 1] }}
             transition={{
               duration: 2.5,
