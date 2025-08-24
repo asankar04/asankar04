@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Plane } from 'lucide-react';
 import { type ThemeColor } from '../../utils/themes';
-import type { Project } from './Projects';
+import type { Project } from './ProjectList';
 
 interface ProjectBlipProps {
   project: Project;
