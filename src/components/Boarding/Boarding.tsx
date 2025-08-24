@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import ReturnButton from './Custom/ReturnButton';
-import Shimmer from './Custom/Shimmer';
+import ReturnButton from '../Custom/ReturnButton';
+import Shimmer from '../Custom/Shimmer';
 import { Briefcase, ArrowRight, ArrowDown, Globe } from 'lucide-react';
-import { type ThemeColor } from '../utils/themes';
-import type { Section } from '../hooks/useSection';
+import { type ThemeColor } from '../../utils/themes';
+import type { Section } from '../../hooks/useSection';
 
 interface BoardingProps {
   handleSectionChange: (section: Section) => void;
