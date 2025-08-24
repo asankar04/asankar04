@@ -4,6 +4,7 @@ import ReturnButton from '../Custom/ReturnButton';
 import { type ThemeColor } from '../../utils/themes';
 import type { Section } from '../../hooks/useSection';
 import ProjectInfo from './ProjectInfo';
+import { Plane } from 'lucide-react';
 
 interface ProjectsProps {
   color: ThemeColor;
@@ -20,7 +21,6 @@ export interface Project {
   status: string;
   type: string;
   radarPosition: { angle: number; distance: number };
-  aircraftType: string;
 }
 
 const projects: Project[] = [
@@ -34,7 +34,6 @@ const projects: Project[] = [
     status: 'Completed',
     type: 'Web Application',
     radarPosition: { angle: 45, distance: 0.7 },
-    aircraftType: '✈️',
   },
   {
     title: 'Dog Breed Gallery',
@@ -46,7 +45,6 @@ const projects: Project[] = [
     status: 'Completed',
     type: 'Web Application',
     radarPosition: { angle: 120, distance: 0.5 },
-    aircraftType: '🛩️',
   },
   {
     title: 'Fact or Fiction',
@@ -58,7 +56,6 @@ const projects: Project[] = [
     status: 'Completed',
     type: 'Web Application',
     radarPosition: { angle: 200, distance: 0.6 },
-    aircraftType: '🚁',
   },
   {
     title: 'Portfolio Website',
@@ -70,7 +67,6 @@ const projects: Project[] = [
     status: 'Completed',
     type: 'Portfolio Website',
     radarPosition: { angle: 300, distance: 0.4 },
-    aircraftType: '🛸',
   },
   {
     title: 'ReactJS Password Generator',
@@ -82,7 +78,6 @@ const projects: Project[] = [
     status: 'Completed',
     type: 'Utility Tool',
     radarPosition: { angle: 15, distance: 0.8 },
-    aircraftType: '🚀',
   },
 ];
 
@@ -277,7 +272,7 @@ export default function Projects({
                     whileHover={{ scale: 1.2 }}
                     transition={{ duration: 0.2 }}
                   >
-                    {project.aircraftType}
+                    <Plane className="text-green-700 fill-green-700" />
                   </motion.div>
 
                   {/* Blip dot */}
@@ -285,7 +280,7 @@ export default function Projects({
                     className="absolute top-1/2 left-1/2 w-2 h-2 rounded-full -translate-x-1/2 -translate-y-1/2"
                     style={{ backgroundColor: color.primary }}
                     animate={{
-                      scale: [1, 1.5, 1],
+                      scale: [0.5, 1, 0.5],
                       opacity: [0.9, 0.5, 0.9],
                     }}
                     transition={{

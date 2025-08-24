@@ -48,9 +48,7 @@ export default function ProjectInfo({
           >
             Type
           </p>
-          <p className="text-white">
-            {project.aircraftType} {project.type}
-          </p>
+          <p className="text-white">{project.type}</p>
         </div>
 
         <div>
