@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { type ThemeColor } from '../../utils/themes';
-import { type Project } from './Projects';
+import { type Project } from './ProjectList';
 
 interface ProjectInfoProps {
   project: Project;
