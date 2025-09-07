@@ -57,7 +57,7 @@ export default function Projects({
           className="text-sm font-mono opacity-80"
           style={{ color: color.primary }}
         >
-          AIRSPACE - ANIT-SANKAR-PROJ
+          AIRSPACE - ANIT-SANKAR-PROJECTS
         </p>
       </motion.div>
 

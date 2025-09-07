@@ -84,7 +84,7 @@ export default function CheckIn({
         transition={{ duration: 0.6, delay: 1.2 }}
         className="text-gray-400 text-sm font-mono mt-8 tracking-wide"
       >
-        CLICK TO PROCEED TO BOARDING
+        CLICK TO PROCEED
       </motion.p>
     </motion.div>
   );
