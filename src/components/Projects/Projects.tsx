@@ -51,7 +51,7 @@ export default function Projects({
             textShadow: `0 0 20px ${color.primary}60`,
           }}
         >
-          PROJECTS RADAR SYSTEM
+          DETECTING PROJECTS...
         </h1>
         <p
           className="text-sm font-mono opacity-80"
