@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { useEffect } from 'react';
-import type { ThemeColor } from '../../utils/themes';
+import type { ThemeColor } from '../../../utils/themes';
 
 interface PaperPlaneProps {
   color: ThemeColor;

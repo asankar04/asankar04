@@ -1,7 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect } from 'react';
 import { type ThemeColor } from '../../utils/themes';
-import PaperPlane from './PaperPlane';
 
 interface AviationOverlayProps {
   isVisible: boolean;
@@ -71,12 +70,12 @@ export default function AviationOverlay({
       <motion.div
         className="fixed inset-0 z-50 pointer-events-none"
         style={{
-          background: `linear-gradient(135deg, rgba(0,0,0,1), rgba(0,0,0,0.90))`,
+          background: `linear-gradient(135deg, rgba(0,0,0,100), rgba(0,0,0,0.95))`,
         }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.2 }}
+        transition={{ duration: 0.1 }}
       >
         {/* Contrail/Trail Effect */}
         <motion.div
@@ -95,7 +94,7 @@ export default function AviationOverlay({
                   ? {
                       // Vertical lines
                       background: `linear-gradient(180deg, transparent, ${color.primary}90, transparent)`,
-                      left: `${48 + i * 2}%`,
+                      left: `${47 + i * 3}%`,
                       top: '-20%',
                       bottom: '-20%',
                       width: '2px',
@@ -105,7 +104,7 @@ export default function AviationOverlay({
                   : {
                       // Horizontal lines
                       background: `linear-gradient(90deg, transparent, ${color.primary}90, transparent)`,
-                      top: `${48 + i * 2}%`,
+                      top: `${47 + i * 3}%`,
                       left: '-20%',
                       right: '-20%',
                       width: '140%',
@@ -130,31 +129,6 @@ export default function AviationOverlay({
               }}
             />
           ))}
-        </motion.div>
-
-        {/* Main Aircraft - PaperPlane */}
-        <motion.div
-          className="absolute"
-          style={{
-            left: direction === 'right' || direction === 'left' ? '0%' : '50%',
-            top: direction === 'down' || direction === 'up' ? '0%' : '50%',
-            transform: `rotate(${animProps.rotation}deg) scale(3)`,
-            transformOrigin: 'center',
-          }}
-          initial={animProps.initial}
-          animate={animProps.animate}
-          transition={{ duration: 0.45, ease: 'easeInOut' }}
-        >
-          {/* Paper Plane Shadow */}
-          <motion.div
-            className="absolute opacity-30"
-            style={{
-              filter: 'blur(3px)',
-              transform: 'translate(6px, 6px)',
-            }}
-          >
-            <PaperPlane color={{ primary: '#666666' }} />
-          </motion.div>
         </motion.div>
 
         {/* Radar Sweep Effect */}

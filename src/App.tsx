@@ -1,5 +1,5 @@
 import AnimatedBackground from './components/Backgrounds/AnimatedBackground';
-import PaperPlane from './components/Custom/PaperPlane';
+import PaperPlane from './components/Custom/PaperPlane/PaperPlane';
 import CheckIn from './components/CheckIn';
 import Boarding from './components/Boarding/Boarding';
 import ThemePicker from './components/Custom/ThemePicker';
