@@ -149,9 +149,9 @@ export default function AviationOverlay({
         {/* Aviation Text Overlay */}
         <motion.div
           className="absolute inset-0 flex items-center justify-center z-30"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: direction === 'down' ? -20 : 20 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
+          exit={{ opacity: 0, y: direction === 'down' ? 20 : -20 }}
           transition={{ duration: 0.25, delay: 0 }}
         >
           <div className="text-center">
