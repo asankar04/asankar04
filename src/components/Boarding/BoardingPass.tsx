@@ -142,7 +142,7 @@ export default function BoardingPass({
           </p>
           <div className="flex justify-between gap-2">
             <motion.a
-              href="https://linkedin.com/in/your-profile"
+              href="https://linkedin.com/in/anit-sankar"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center justify-center gap-2 px-4 py-2 rounded border border-dashed hover:border-solid border-gray-400 hover:border-white/50 transition-colors duration-300 flex-1"
@@ -157,7 +157,7 @@ export default function BoardingPass({
             </motion.a>
 
             <motion.a
-              href="https://github.com/your-username"
+              href="https://github.com/asankar04"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center justify-center gap-2 px-4 py-2 rounded border border-dashed hover:border-solid border-gray-400 hover:border-white/50 transition-colors duration-300 flex-1"
@@ -172,7 +172,7 @@ export default function BoardingPass({
             </motion.a>
 
             <motion.a
-              href="https://instagram.com/your-handle"
+              href="https://instagram.com/anit_vs"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center justify-center gap-2 px-4 py-2 rounded border border-dashed hover:border-solid border-gray-400 hover:border-white/50 transition-colors duration-300 flex-1"
@@ -198,7 +198,7 @@ export default function BoardingPass({
           className="text-center font-mono text-xs tracking-widest"
           style={{ color: color.primary }}
         >
-          WELCOME ABOARD FLIGHT AS-2024
+          WELCOME ABOARD FLIGHT AS-2025
         </p>
       </div>
     </motion.div>

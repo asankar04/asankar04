@@ -1,10 +1,14 @@
 import { motion } from 'framer-motion';
 import { type ThemeColor } from '../../utils/themes';
 import { LogOut } from 'lucide-react';
+import type { Section, TransitionDirection } from '../../hooks/useSection';
 
 interface ReturnButtonProps {
   color: ThemeColor;
-  handleSectionChange: (section: string) => void;
+  handleSectionChange: (
+    section: Section,
+    direction: TransitionDirection
+  ) => void;
 }
 
 export default function ReturnButton({
@@ -31,7 +35,7 @@ export default function ReturnButton({
           borderColor: color.primary,
           color: color.primary,
         }}
-        onClick={() => handleSectionChange('checkIn')}
+        onClick={() => handleSectionChange('checkIn', 'left')}
       >
         RETURN
         <LogOut size={16} className="transform -scale-x-100" />

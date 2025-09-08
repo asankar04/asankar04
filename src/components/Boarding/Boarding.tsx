@@ -1,20 +1,21 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { type ThemeColor } from '../../utils/themes';
-import type { Section } from '../../hooks/useSection';
+import type { Section, TransitionDirection } from '../../hooks/useSection';
 import BoardingPass from './BoardingPass';
 import RedirectSigns from './RedirectSigns';
 import ReturnButton from '../Custom/ReturnButton';
 
 interface BoardingProps {
-  handleSectionChange: (section: Section) => void;
-  isTransitioning: boolean;
+  handleSectionChange: (
+    section: Section,
+    direction: TransitionDirection
+  ) => void;
   color: ThemeColor;
 }
 
 export default function Boarding({
   handleSectionChange,
-  isTransitioning,
   color,
 }: BoardingProps) {
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -31,19 +32,16 @@ export default function Boarding({
   return (
     <motion.div
       className="relative z-10 bg-black/40 min-h-screen flex flex-col md:gap-8 gap-6 pt-10 items-center justify-center px-4"
-      initial={{ scale: 0.8 }}
-      animate={{
-        scale: isTransitioning ? 0.8 : 1,
-      }}
       transition={{
         duration: 0.4,
+        delay: 0.6,
         ease: 'easeInOut',
       }}
     >
       {/* Return Button */}
       <ReturnButton
         color={color}
-        handleSectionChange={() => handleSectionChange('checkIn')}
+        handleSectionChange={() => handleSectionChange('checkIn', 'left')}
       />
 
       {/* Boarding Pass Card */}

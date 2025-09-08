@@ -1,25 +1,19 @@
 import { motion } from 'framer-motion';
 import { type ThemeColor } from '../utils/themes';
-import type { Section } from '../hooks/useSection';
+import type { Section, TransitionDirection } from '../hooks/useSection';
 
 interface CheckInProps {
-  handleSectionChange: (section: Section) => void;
-  isTransitioning: boolean;
+  handleSectionChange: (
+    section: Section,
+    direction: TransitionDirection
+  ) => void;
   color: ThemeColor;
 }
 
-export default function CheckIn({
-  handleSectionChange,
-  isTransitioning,
-  color,
-}: CheckInProps) {
+export default function CheckIn({ handleSectionChange, color }: CheckInProps) {
   return (
     <motion.div
       className="relative z-10 min-h-screen bg-black/40 flex flex-col items-center justify-center px-4"
-      initial={{ scale: 0.8 }}
-      animate={{
-        scale: isTransitioning ? 0.8 : 1,
-      }}
       transition={{
         duration: 0.4,
         ease: 'easeInOut',
@@ -66,7 +60,7 @@ export default function CheckIn({
           boxShadow: { duration: 0.3, ease: 'easeOut' },
         }}
         whileTap={{ scale: 0.98 }}
-        onClick={() => handleSectionChange('boarding')}
+        onClick={() => handleSectionChange('boarding', 'right')}
         className="bg-gray-900/90 border-2 border-dashed 
                px-12 py-6 text-2xl font-mono font-bold 
                tracking-widest rounded-sm"

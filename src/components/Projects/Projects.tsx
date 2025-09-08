@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { type ThemeColor } from '../../utils/themes';
-import type { Section } from '../../hooks/useSection';
+import type { Section, TransitionDirection } from '../../hooks/useSection';
 import { type Project } from './ProjectList';
 import ReturnButton from '../Custom/ReturnButton';
 import ProjectInfo from './ProjectInfo';
@@ -9,32 +9,30 @@ import RadarScreen from './RadarScreen';
 
 interface ProjectsProps {
   color: ThemeColor;
-  handleSectionChange: (section: Section) => void;
-  isTransitioning: boolean;
+  handleSectionChange: (
+    section: Section,
+    direction: TransitionDirection
+  ) => void;
 }
 
 export default function Projects({
   color,
   handleSectionChange,
-  isTransitioning,
 }: ProjectsProps) {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
     <motion.div
       className="relative z-10 bg-black/40 min-h-screen flex flex-col items-center justify-center px-4 py-8"
-      initial={{ scale: 0.8 }}
-      animate={{
-        scale: isTransitioning ? 0.8 : 1,
-      }}
       transition={{
         duration: 0.4,
+        delay: 0.6,
         ease: 'easeInOut',
       }}
     >
       <ReturnButton
         color={color}
-        handleSectionChange={() => handleSectionChange('boarding')}
+        handleSectionChange={() => handleSectionChange('boarding', 'left')}
       />
 
       {/* Radar Header */}

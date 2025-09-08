@@ -1,12 +1,15 @@
 import { motion } from 'framer-motion';
 import { type ThemeColor } from '../../utils/themes';
-import type { Section } from '../../hooks/useSection';
+import type { Section, TransitionDirection } from '../../hooks/useSection';
 import { Globe, ArrowRight, ArrowDown, Briefcase } from 'lucide-react';
 import Shimmer from '../Custom/Shimmer';
 
 interface RedirectSignsProps {
   color: ThemeColor;
-  handleSectionChange: (section: Section) => void;
+  handleSectionChange: (
+    section: Section,
+    direction: TransitionDirection
+  ) => void;
 }
 
 export default function RedirectSigns({
@@ -51,7 +54,7 @@ export default function RedirectSigns({
           >
             <button
               className="w-full group"
-              onClick={() => handleSectionChange('experience')}
+              onClick={() => handleSectionChange('experience', 'right')}
             >
               <div className="px-5 py-3 flex items-center justify-between">
                 <div className="flex items-center gap-4">
@@ -110,7 +113,7 @@ export default function RedirectSigns({
           >
             <button
               className="w-full group"
-              onClick={() => handleSectionChange('projects')}
+              onClick={() => handleSectionChange('projects', 'down')}
             >
               <div className="px-5 py-3 flex items-center justify-between">
                 <div className="flex items-center gap-4">

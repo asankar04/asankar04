@@ -1,12 +1,14 @@
 import { motion } from 'framer-motion';
 import ReturnButton from './Custom/ReturnButton';
 import { type ThemeColor } from '../utils/themes';
-import type { Section } from '../hooks/useSection';
+import type { Section, TransitionDirection } from '../hooks/useSection';
 
 interface ExperienceProps {
   color: ThemeColor;
-  handleSectionChange: (section: Section) => void;
-  isTransitioning: boolean;
+  handleSectionChange: (
+    section: Section,
+    direction: TransitionDirection
+  ) => void;
 }
 
 const experience = [
@@ -55,23 +57,19 @@ const experience = [
 export default function Experience({
   color,
   handleSectionChange,
-  isTransitioning,
 }: ExperienceProps) {
   return (
     <motion.div
       className="relative z-10 bg-black/40 min-h-screen flex flex-col items-center justify-center px-4 py-8 max-md:px-0"
-      initial={{ scale: 0.8 }}
-      animate={{
-        scale: isTransitioning ? 0.8 : 1,
-      }}
       transition={{
         duration: 0.4,
+        delay: 0.6,
         ease: 'easeInOut',
       }}
     >
       <ReturnButton
         color={color}
-        handleSectionChange={() => handleSectionChange('boarding')}
+        handleSectionChange={() => handleSectionChange('boarding', 'left')}
       />
 
       {/* Experience Board */}
