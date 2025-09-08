@@ -135,7 +135,7 @@ export default function BoardingPass({
         {/* Social Connections - Compact Boarding Pass Style */}
         <div>
           <p
-            className="text-xs font-mono tracking-wide mb-2"
+            className="text-xs font-mono tracking-wide mb-3"
             style={{ color: color.primary }}
           >
             CONTACT

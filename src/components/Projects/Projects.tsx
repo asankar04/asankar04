@@ -40,7 +40,7 @@ export default function Projects({
         className="mb-6 mx-auto text-center"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
+        transition={{ duration: 0.6, delay: 0.6 }}
       >
         <h1
           className="text-3xl md:text-4xl font-mono font-bold tracking-wider mb-2"

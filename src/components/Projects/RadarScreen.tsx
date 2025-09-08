@@ -32,7 +32,7 @@ export default function RadarScreen({
       className="relative mx-4 sm:mx-6 md:mx-0"
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.8, delay: 0.4 }}
+      transition={{ duration: 0.8, delay: 0.65 }}
     >
       {/* Radar Screen Container */}
       <motion.div
