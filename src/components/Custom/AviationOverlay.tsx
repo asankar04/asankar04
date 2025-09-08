@@ -162,7 +162,7 @@ export default function AviationOverlay({
                 textShadow: `0 0 20px ${color.primary}60`,
               }}
             >
-              NAVIGATING
+              CRUISING
             </motion.h2>
             <motion.div
               className="flex items-center justify-center gap-2 text-md font-mono opacity-80"
@@ -174,7 +174,7 @@ export default function AviationOverlay({
               >
                 ●
               </motion.div>
-              <span>FASTEN YOUR SEATBELT</span>
+              <span>ENJOY THE FLIGHT</span>
               <motion.div
                 animate={{ opacity: [1, 0, 1] }}
                 transition={{ duration: 0.6, repeat: Infinity, delay: 0.3 }}
